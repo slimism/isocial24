@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'not_shipped_dash' %}">Orders</a></li>
+          <li>Order Details</li>
+        </ol>
+        <h2>Order Details</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- Start of Cart Items -->
+    <section class="cart-item-sec">
+        <div class="card mb-3 card-cart">
+            <div class="row g-0">
+              <div class="col-md-7 offset-md-3 col-sm-12">
+              <div class="row cart-item-row">
+                <div class="col-md-9 col-sm-9 col-10">
+                  <div class="card-body">
+                    <h5 class="card-title"><small class="text-body-secondary">Order No. {{ order.id }} - <small class="text-body-secondary bg-warning text-dark">AED {{ order.amount_paid }}</small></small></h5>
+                    <p class="card-text"><small class="text-body-secondary">Email: {{ order.email}}</small></p>
+                    <p class="card-text"><small class="text-body-secondary extra-small-text">Shipping Address: {{ order.shipping_address }}</small></p>
+                  </div>
+          </div>
+          <div class="col-md-2 col-sm-2 col-2 d-flex align-items-center justify-content-center">
+            <p class="card-text">
+                <small class="text-body-secondary extra-small-text">
+                    {% if order.date_shipped %}
+                        Date Shipped: {{ order.date_shipped}}
+                    {% else %}
+                        Date Ordered: {{ order.date_ordered}}
+                    {% endif %}
+                </small>
+            </p>
+        </div>
+       
+        </div></div></div></div>
+      
+        {% for item in items %}
+      <div class="card mb-3 card-cart">
+        <div class="row g-0">
+          <div class="col-md-7 offset-md-3 col-sm-12">
+          <div class="row cart-item-row">
+              <div class="col-md-2 col-sm-2 col-12">
+              <img src="{{ item.product.image.url }}" class="img-fluid rounded-start " alt="Package-image">
+            </div>
+            <div class="col-md-9 col-sm-9 col-10">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.product }}</h5>
+                <p class="card-text">You've ordered {{ item.quantity }} of this the mentioned item {{ item.product }}</p>
+                <p class="card-text"><small class="text-body-secondary bg-warning text-dark">AED {{ item.price }}</small></p>
+                
+              </div>
+      </div>
+   
+    </div></div></div></div>
+    {% endfor %}
+
+  </section>
+
+  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <!-- End of Cart Items -->
+  
+
+
+
+
+  </main><!-- End #main -->
+
+ 
+
+  {% endblock %}

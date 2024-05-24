@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Processing Queue</li>
+        </ol>
+        <h2>Pending Shipments</h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <div class="container-xl px-4 mt-4">
+        <!-- Account page navigation-->
+        <nav class="nav-profile nav-profile-borders">
+            <a class="nav-profile-link active ms-0" href="{% url 'not_shipped_dash' %}">Pending Orders</a>
+            <a class="nav-profile-link" href="{% url 'shipped_dash' %}">Completed Orders</a>
+        </nav>
+        <hr class="mt-0 mb-4">
+        <div class="row">
+          
+            <div class="col-xl-12">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-dark">
+                          <tr>
+                            <th scope="col">Order</th>
+                            <th scope="col">Customer Email</th>
+                            <th scope="col">Date Ordered</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Shipping Address</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in orders%}
+                          <tr>
+                            <td><a href="{% url 'orders' item.id %}">{{ item.id }}</a></td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.date_ordered }}</td>
+                            <td>AED {{ item.amount_paid }}</td>
+                            <td>{{ item.shipping_address }}</td>
+                          </tr>
+                       {% endfor %}
+                       
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br/><br/><br/><br/><br/>
+
+
+
+  </main><!-- End #main -->
+
+ 
+  {% endblock %}

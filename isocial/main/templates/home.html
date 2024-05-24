@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Slider-->
+
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-item-in d-flex justify-content-center align-items-center">
+      <img src="{% static 'assets/slider-bg-1.png' %}" alt="Social Media Management" class="d-block w-100">
+      <div class="carousel-item-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h1>Crafting Digital Experience</h1>
+              <p>Turning Ordinary into Extraordinary: Boost Your Online Presence with Our Social Media Expertise!</p>
+              <a class="btn btn-secondary" href="">Explore Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-item-in d-flex justify-content-center align-items-center">
+      <img src="{% static 'assets/slider-bg-2.png' %}" alt="Social Media Management" class="d-block w-100">
+      <div class="carousel-item-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h1>Unleash the Full Potential of Your Online Presence</h1>
+              <p>Beyond Likes and Shares, We Create Digital Conversations That Spark Engagement, Drive Growth, and Define Brands!</p>
+              <a class="btn btn-secondary" href="">Explore Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+<!-- End of Slider -->
+
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Our Pricing</h2>
+        <p>Discover our competitive pricing plans tailored to meet your social media marketing needs and budget.</p>
+      </div>
+
+      <div class="row gy-4">
+        {% for product in products %}
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="pricing-item">
+
+            <div class="pricing-header">
+              <h3>{{ product.name }}</h3>
+              <h4><sup>AED</sup>{{ product.price }}<span> / month</span></h4>
+            </div>
+
+            {% if product.description %}
+            <ul>
+                {% for item in product.description %}
+                {% if item.visible %}
+                <li><i class="bi bi-dot"></i> <span>{{ item.description }}</span></li>
+                {% else %}
+                <li class="na"><i class="bi bi-x"></i> <span>{{ item.description }}</span></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div class="text-center mt-auto">
+              <a href="#" class="btn btn-outline-dark btn-lg">Buy Now</a>
+            </div>
+
+          </div>
+        </div><!-- End Pricing Item -->
+        {% endfor %} 
+
+      </div>
+
+    </div>
+  </section><!-- End Pricing Section -->
+
+        
+{% endblock %}

@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Review Checkout</li>
+        </ol>
+        <h2>Checkout Summary Details Details</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- Start of Cart Items -->
+   <section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                      Order Summary
+                    </div>
+                    <div class="card-body">
+                        {% for product in cart_products %}
+                        {{ product.name }}
+                        <br/>
+                        AED {{product.price}}
+                        <br/><br/>
+                        {% endfor %}
+                      Total: AED {{ totals }}
+                      <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
+                    </div>
+                  </div>
+                  <!--Card Shipping Address-->
+                  <div class="card">
+                    <div class="card-header">
+                      Shipping Info
+                    </div>
+                    <div class="card-body">
+                      <form method="POST" action="{%url 'billing_info' %}">
+                        {% csrf_token %}
+                        {{ shipping_form.as_p }}
+                    </div>
+                  </div>
+                  <!-- End of Shipping Address-->
+                  <button type="submit" class="btn btn-secondary">Continue to billing</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   </section>
+
+  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <!-- End of Cart Items -->
+  
+
+
+
+
+  </main><!-- End #main -->
+
+  {% endblock %}

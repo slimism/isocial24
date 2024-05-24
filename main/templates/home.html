@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- ======= Header ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <video autoplay muted id="video-bg">
+        <source src="{% static 'assets/background.mp4' %}" type="video/mp4">
+      </video>
+      <div class="hero-container">
+        <h3>Welcome to <strong>iSocial24</strong></h3>
+        <h1>Crafting Digital Experience</h1>
+        <h2>Turning Ordinary into Extraordinary: Boost Your Online Presence with Our Social Media Expertise!</h2>
+        <a href="#pricing" class="btn-get-started scrollto">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <h3>Learn More <span>About Us</span></h3>
+          <p>Your Social Media Storytellers</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Strategize, Socialize, Succeed
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> <b>Passionate Storytellers:</b> We craft stories that resonate and inspire action across all social media platforms.</li>
+              <li><i class="ri-check-double-line"></i><b>Innovative Strategists:</b> Our goal is to not only meet but exceed your social media objectives.</li>
+              <li><i class="ri-check-double-line"></i><b>Client-Centric Collaboration:</b> Together, we'll develop tailor-made solutions that drive meaningful engagement and measurable results.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              We are a dynamic team of creative minds, strategists, and digital enthusiasts who thrive on transforming ideas into impactful digital experiences. Our journey began with a vision to revolutionize the digital landscape, and today, we stand tall as pioneers in crafting compelling narratives that resonate with audiences worldwide.
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <h3>We do offer awesome <span>Services</span></h3>
+          <p>Empowering individuals and businesses to enhance their online presence and engagement through comprehensive Social Management Services</p>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box sm-manage">
+              <h4 class="title"><a href="">Social Media Management</a></h4>
+              <p class="description">The most brilliant team will help you empwer your online presence </p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box c-create">
+              <h4 class="title"><a href="">Content Creation</a></h4>
+              <p class="description">Innovative team dedicated to inspire your audience</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box seo">
+              <h4 class="title"><a href="">Search Engine Optimization</a></h4>
+              <p class="description">Analyst aimed to boost your recognition</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box web-design">
+              <h4 class="title"><a href="">Web Development and Design</a></h4>
+              <p class="description">Superheroes that bring ideas to reality</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Call To Action</h3>
+          <p>Unlock the potential within you and turn your dreams into tangible achievements! Join us on this journey, and together, let's transform aspirations into reality</p>
+          <a class="cta-btn" href="#contact">Call To Action</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Clients</h2>
+          <h3>We're proud of our <span>Clients</span></h3>
+          <p>We take pride in representing our valued clients with integrity and dedication</p>
+        </div>
+        <div class="row ">
+          <div class="col-lg-12 col-md-12 col-sm-12 partner-img-container">   
+            <img src="{% static 'assets/dentoface.png' %}" class="img-fluid partner-img" alt="Dentoface">     
+            <img src="{% static 'assets/paraqia.png' %}" class="img-fluid partner-img" alt="Paraqia">          
+        </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+ 
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <h3>Our Competing <span>Prices</span></h3>
+          <p>Discover our competitive pricing plans tailored to meet your social media marketing needs and budget.</p>
+        </div>
+
+        <div class="row">
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6">
+            <div class="box">
+              <h3>{{ product.name }}</h3>
+              <h4><sup>AED</sup>{{ product.price }}<span> / month</span></h4>
+              {% if product.description %}
+              <ul>
+                {% for item in product.description %}
+                  {% if item.visible %}
+                <li>{{ item.description }}</li>
+                {% else %}
+                <li class="na">{{ item.description }}</li>
+                {% endif %}
+                  {% endfor %}
+              </ul>
+              {% endif %}
+              <div class="btn-wrap">
+                <button type="button" value="{{ product.id }}" class="btn-buy" id="add-cart">Buy Now</button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+     
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>F.A.Q</h2>
+          <h3>Frequently Asked <span>Questions</span></h3>
+        </div>
+
+        <ul class="faq-list">
+
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">What services does your social media agency offer? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                We offer a wide range of services including social media management, content creation, community engagement, social media advertising, influencer marketing, analytics and reporting, and more.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">How can your agency help my business grow on social media? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Our agency employs strategic planning, creative content creation, targeted advertising campaigns, and engagement tactics to increase your brand's visibility, audience engagement, and ultimately drive conversions and growth on social media platforms.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">How do you determine the best social media strategy for my business? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                We conduct a thorough analysis of your business goals, target audience, industry trends, and competitors to tailor a customized social media strategy that aligns with your objectives and maximizes your ROI.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Can you handle social media platforms other than Facebook and Instagram? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Yes, we specialize in managing various social media platforms including but not limited to Facebook, Instagram, Twitter, LinkedIn, Pinterest, YouTube, TikTok, and more. We tailor our strategies to each platform to ensure optimal results.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">What sets your agency apart from others in the industry? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Our agency is driven by a team of experienced social media experts who stay updated with the latest trends, algorithms, and best practices in the industry. We prioritize creativity, transparency, and client satisfaction, delivering personalized solutions that yield tangible results.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question"> How do I get started with your agency? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Getting started with our agency is simple! Just reach out to us through our website or contact information provided, and we'll schedule a consultation to discuss your business needs, goals, and how we can help you achieve success on social media.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <h3>Contact <span>Us</span></h3>
+          <p>Drop us a inquiry, we will reach out and make greatness together.</p>
+        </div>
+
+        <div>
+          
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.0765889378386!2d55.20290356968343!3d25.125331512820882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b564dc9e5af%3A0x93e7151516d48a26!2sAsmawi%20Office%20Building!5e0!3m2!1sen!2sde!4v1709321334175!5m2!1sen!2sde" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Office No. 117, Al Asmawi Building, Ground Floor - Sheikh Zayed Rd - Umm Al Sheif - Dubai - United Arab Emirates</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@isocial24.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+971 4 3943919</p>
+              </div>
+
+       
+
+            </div>
+
+          </div>
+          
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+        </div>
+
+          <!-- <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div> -->
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    // Check if button is pressed 
+    $(document).on('click', '.btn-buy', function(e){
+      e.preventDefault();
+      var product_id = $(this).val();
+      $.ajax({
+        type: 'POST',
+        url: "{% url 'cart_add' %}",
+        data:{
+          product_id: product_id,
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+          action: 'post'
+        },
+        success: function(json){
+          // console.log(json.qty);
+          document.getElementById("cart_quantity").textContent = json.qty;
+          
+        },
+        error: function(xhr, errmsg, err){
+        }
+      });
+    })
+  </script>
+        
+{% endblock %}

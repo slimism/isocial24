@@ -1,0 +1,56 @@
+<!-- templates/main/contact.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Checkout Summary</li>
+        </ol>
+        <h2>Checkout Summary Details</h2>
+
+      </div>
+
+
+      <div class="col-lg-8 mt-5 mt-lg-0 offset-md-2">
+        <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    {{ form.name.errors }}
+                    {{ form.name }}
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    {{ form.email.errors }}
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                {{ form.subject.errors }}
+                {{ form.subject }}
+            </div>
+            <div class="form-group mt-3">
+                {{ form.message.errors }}
+                {{ form.message }}
+            </div>
+            <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+    </div>
+{% endblock %}

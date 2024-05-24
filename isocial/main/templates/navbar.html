@@ -1,0 +1,42 @@
+{% load static %}
+        
+        <nav class="navbar navbar-expand-lg bg-light fixed-top nav-trans">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'assets/isociallogo.png' %}" alt="iSocial24 Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-outline-secondary btn-rounded" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a class="btn btn-success btn-rounded" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-secondary btn-rounded" href="{% url 'register' %}">Register</a>
+                          </div>
+
+                        <!-- <a class="btn btn-secondary btn-rounded" href="{% url 'login' %}">Login</a>
+                        <a class="btn btn-secondary btn-rounded" href="{% url 'register' %}">Register</a> -->
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+

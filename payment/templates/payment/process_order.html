@@ -1,0 +1,90 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Processing Order Template</li>
+        </ol>
+        <h2>Checkout Summary Details Details</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- Start of Cart Items -->
+   <section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                      Billing Information
+                    </div>
+                    <div class="card-body">
+                        {% for product in cart_products %}
+                        {{ product.name }}
+                        <br/>
+                        AED {{product.price}}
+                        <br/><br/>
+                        {% endfor %}
+                      Total: AED {{ totals }}
+                      <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
+                    </div>
+                  </div>
+                  <!--Card Shipping Address-->
+                  <div class="card">
+                    <div class="card-header">
+                      Shipping Info
+                    </div>
+                    <div class="card-body">
+                      
+                       
+                        Name: {{ shipping_info.shipping_full_name }} <br/>
+                        Email: {{ shipping_info.shipping_email }} <br/>
+                        Shipping Address: {{ shipping_info.shipping_address1 }} <br/>
+                        <br/>
+                        <a href="{% url 'checkout' %}" class="btn btn-secondary">Update Shipping Address</a>
+                    </div>
+                  </div>
+                  <!-- End of Shipping Address-->
+
+                  <br/>
+                  <div class="card">
+                    <div class="card-header">
+                        <form method="POST" action="{% url 'process_order' %}">
+                            {% csrf_token %}
+                      Billing Info
+                    </div>
+                    <div class="card-body">
+                      {{ billing_form.as_p }}
+
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+   </section>
+
+  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <!-- End of Cart Items -->
+  
+
+
+
+
+  </main><!-- End #main -->
+
+  {% endblock %}

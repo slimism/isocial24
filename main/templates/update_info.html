@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div id="product_slide" class="product_slide" style="background: black;">
+    <br/><br/><br/><br/><br/><br/>
+</div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="cart-cont-initial" class="cart-cont-initial">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Edit Profile</li>
+        </ol>
+        <h2>Profile Summary</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+<div class="container-xl px-4 mt-4">
+  <!-- Account page navigation-->
+  <nav class="nav-profile nav-profile-borders">
+      <a class="nav-profile-link" href="{% url 'update_user' %}">User</a>
+      <a class="nav-profile-link active ms-0" href="{% url 'update_info' %}">Shipping Address</a>
+      <a class="nav-profile-link" href="{% url 'update_password' %}">Security</a>
+      <!-- <a class="nav-profile-link" href=""  target="__blank">Notifications</a> -->
+  </nav>
+  <hr class="mt-0 mb-4">
+  <div class="row">
+    
+      <div class="col-xl-12">
+          <!-- Account details card-->
+          <div class="card mb-4">
+              <div class="card-header">Personal Information:</div>
+              <div class="card-body">
+                  <form method="POST" action="{% url 'update_info' %}">
+                      {% csrf_token %}
+                      <!-- Form Group (Organization)-->
+                      <div class="mb-3">
+                          <label class="small mb-1" for="username">Organization</label>
+                          {{ form.company }}
+                      </div>
+                      <!-- Form Row-->
+                      <div class="row gx-3 mb-3">
+                          <!-- Form Group (Phone)-->
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="inputFirstName">Phone</label>
+                              {{ form.phone }}
+                          </div>
+                          <!-- Form Group (address)-->
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="inputLastName">Street name</label>
+                              {{ form.address1 }}
+                          </div>
+                      </div>
+
+                      <div class="row gx-3 mb-3">
+                        <!-- Form Group (Phone)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputFirstName">City</label>
+                            {{ form.city }}
+                        </div>
+                        <!-- Form Group (address)-->
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputLastName">Country</label>
+                            {{ form.country }}
+                        </div>
+                    </div>
+                     
+                    <div class="card-header">Shipping address</div>
+                    <div class="row gx-3 mb-3">
+                      <!-- Form Group (Shipping Fullname)-->
+                      <div class="col-md-6">
+                          <label class="small mb-1" for="inputFirstName">Full name</label>
+                          {{ shipping_form.shipping_full_name }}
+                      </div>
+                      <!-- Form Group (address)-->
+                      <div class="col-md-6">
+                          <label class="small mb-1" for="inputLastName">Email address</label>
+                          {{ shipping_form.shipping_email }}
+                      </div>
+                  </div>
+
+                  <div class="row gx-3 mb-3">
+                    <!-- Form Group (Shipping address)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputFirstName">Street name</label>
+                        {{ shipping_form.shipping_address1 }}
+                    </div>
+                    <!-- Form Group (city)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputLastName">City</label>
+                        {{ shipping_form.shipping_city }}
+                    </div>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <!-- Form Group (Shipping state)-->
+                  <div class="col-md-6">
+                      <label class="small mb-1" for="inputFirstName">State</label>
+                      {{ shipping_form.shipping_state }}
+                  </div>
+                  <!-- Form Group (zipcode)-->
+                  <div class="col-md-6">
+                      <label class="small mb-1" for="inputLastName">Zipcode</label>
+                      {{ shipping_form.shipping_zipcode }}
+                  </div>
+              </div>
+              <div class="mb-3">
+                <label class="small mb-1" for="username">Country</label>
+                {{ shipping_form.shipping_country }}
+            </div>
+
+                      
+                      <!-- Save changes button-->
+                      <button typ="submit" class="btn btn btn-danger">Save changes</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br/><br/><br/><br/><br/>
+
+
+
+
+{% endblock %}
