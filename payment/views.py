@@ -4,8 +4,9 @@ from payment.forms import ShippingForm, PaymentForm
 from payment.models import ShippingAddress, Order, OrderItem
 from django.contrib import messages
 from django.contrib.auth.models import User
-from main.models import Product
+from main.models import Product, Profile
 from django.core.paginator import Paginator
+import datetime
 
 def orders(request, pk):
     if request.user.is_authenticated and request.user.is_superuser:
@@ -13,7 +14,20 @@ def orders(request, pk):
         order = Order.objects.get(id=pk)
         #Get the order item 
         items = OrderItem.objects.filter(order=pk)
-
+        if request.POST:
+            status = request.POST['shipping_status']
+            #Check if True or false 
+            if status == "true":
+                order = Order.objects.filter(id=pk)
+                #Update Status 
+                now = datetime.datetime.now()
+                order.update(shipped=True, date_shipped=now)
+            else: 
+                order = Order.objects.filter(id=pk)
+                #Update Status 
+                order.update(shipped=False)
+            messages.success(request, "Shipping Status Updated")
+            return redirect ('home')
         return render(request, "payment/orders.html", {"order": order, "items": items}) 
     else:
         messages.error(request,"Access Denied")
@@ -23,6 +37,16 @@ def orders(request, pk):
 def not_shipped_dash(request):
     if request.user.is_authenticated and request.user.is_superuser:
         orders = Order.objects.filter(shipped=False)
+        if request.POST:
+            status = request.POST['shipping_status']
+            num = request.POST['num']
+            #Get Order
+            order = Order.objects.filter(id=num)
+            #Check if True or false 
+            now = datetime.datetime.now()
+            order.update(shipped=True, date_shipped=now) 
+            messages.success(request, "Shipping Status Updated")
+
         paginator = Paginator(orders, 20)  # Show 20 orders per page
 
         page_number = request.GET.get('page')
@@ -36,6 +60,14 @@ def not_shipped_dash(request):
 def shipped_dash(request):
     if request.user.is_authenticated and request.user.is_superuser:
         orders = Order.objects.filter(shipped=True)
+        if request.POST:
+            status = request.POST['shipping_status']
+            num = request.POST['num']
+            order = Order.objects.filter(id=num)
+            #Check if True or false 
+            now = datetime.datetime.now()
+            order.update(shipped=False) 
+            messages.success(request, "Shipping Status Updated")
         paginator = Paginator(orders, 20)  # Show 20 orders per page
 
         page_number = request.GET.get('page')
@@ -87,7 +119,10 @@ def process_order(request):
                 if key == "session_key":
                     #Delete Key 
                     del request.session[key]
-                
+            #Delete old cart field from data base 
+            current_user = Profile.objects.filter(user__id=request.user.id)
+            #Delete shopping cart in data base 
+            current_user.update(old_cart="")
 
 
             messages.success(request,"Orders Placed")

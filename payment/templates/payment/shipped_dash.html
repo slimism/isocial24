@@ -40,6 +40,7 @@
                             <th scope="col">Date Shipped</th>
                             <th scope="col">Price</th>
                             <th scope="col">Shipping Address</th>
+                            <th scope="col">Change Status</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -47,9 +48,17 @@
                           <tr>
                             <td><a href="{% url 'orders' item.id %}">{{ item.id }}</a></td>
                             <td>{{ item.email }}</td>
-                            <td>{{ item.date_ordered }}</td>
+                            <td>{{ item.date_shipped }}</td>
                             <td>AED {{ item.amount_paid }}</td>
                             <td>{{ item.shipping_address }}</td>
+                            <td>
+                              <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="shipping_status" value="false">
+                                <input type="hidden" name="num" value={{item.id}}>
+                                <button type="Submit" class="btn btn-success btn-small">Marked Unshipped</button>
+                              </form>
+                            </td>
                           </tr>
                        {% endfor %}
                        
