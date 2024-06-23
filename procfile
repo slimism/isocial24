@@ -3,8 +3,4 @@ web: gunicorn cart.wsgi --log-file
 web: gunicorn payment.wsgi --log-file
 web: python manage.py migrate && gunicorn main.wsg
 web: python manage.py migrate && gunicorn cart.wsg
-<<<<<<< HEAD
 web: python manage.py migrate && gunicorn payment.wsg
-=======
-web: python manage.py migrate && gunicorn payment.wsg
->>>>>>> 4961bd7b30acb2e0c4bea915976b8b10f0111f07
