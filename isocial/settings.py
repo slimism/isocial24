@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-=f)$dd=e(0y3rojs&lj$i#1m5h3wyj=y)_k^)ric2ml8gzfsvu
 DEBUG = True
 
 ALLOWED_HOSTS = ['isocial24-production.up.railway.app', 'https://isocial24-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['isocial24-production.up.railway.app', 'https://isocial24-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://isocial24-production.up.railway.app']
 
 
 # Application definition
