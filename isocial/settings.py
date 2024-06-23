@@ -13,9 +13,9 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-=f)$dd=e(0y3rojs&lj$i#1m5h3wyj=y)_k^)ric2ml8gzfsvu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['isocial24-production.up.railway.app']
+ALLOWED_HOSTS = ['isocial24-production.up.railway.app', 'https://isocial24-production.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['https://isocial24-production.up.railway.app']
 
 
@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres', 
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'viaduct.proxy.rlwy.net',
         'PORT': '14001',
     }
@@ -139,6 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = 'mysleeem@gmail.com'
+EMAIL_HOST_PASSWORD = 'sotuzpaydmyevgac'
 EMAIL_USE_TLS = True
