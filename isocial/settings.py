@@ -13,8 +13,8 @@ SECRET_KEY = 'django-insecure-=f)$dd=e(0y3rojs&lj$i#1m5h3wyj=y)_k^)ric2ml8gzfsvu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['isocial24-production.up.railway.app', 'https://isocial24-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://isocial24-production.up.railway.app']
+ALLOWED_HOSTS = ['https://cubiq-solutions.com', 'cubiq-solutions.com', 'isocial24-production.up.railway.app', 'https://isocial24-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://cubiq-solutions.com', 'https://isocial24-production.up.railway.app']
 
 
 # Application definition
