@@ -2,7 +2,7 @@
 {% block content %}
 
 
- <!-- <header class="bg-dark py-5">
+ <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Login</h1>
@@ -29,35 +29,7 @@
           <br/><br/>
 
     </div>
-</div> -->
-<!-- login.html -->
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="{% url 'login' %}">
-          {% csrf_token %}
-          <div class="mb-3">
-            <label for="id_username" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="id_username" required>
-          </div>
-          <div class="mb-3">
-            <label for="id_password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="id_password" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>
-
 
 
 {% endblock %}
