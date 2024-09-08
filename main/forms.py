@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, SetPasswordForm
 from django import forms
 from .models import Profile
+from captcha.fields import ReCaptchaField
 
 class UserInfoForm(forms.ModelForm):
 	phone = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone'}), required=False)
@@ -119,5 +120,6 @@ class ContactForm(forms.Form):
             'required': 'required'
         })
     )
+	captcha = RecaptchaField()
 
 
