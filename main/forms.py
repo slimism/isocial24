@@ -120,6 +120,6 @@ class ContactForm(forms.Form):
             'required': 'required'
         })
     )
-	captcha = RecaptchaField()
+    captcha = ReCaptchaField()  # This is correct!
 
 
