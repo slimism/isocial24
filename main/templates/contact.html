@@ -7,7 +7,7 @@
 
 
 <div id="product_slide" class="product_slide" style="background: black;">
-    <br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 <main id="main">
 
@@ -44,6 +44,10 @@
             <div class="form-group mt-3">
                 {{ form.message.errors }}
                 {{ form.message }}
+            </div>
+            <div class="form-group mt-3"></div>
+                {{ form.captcha.errors }}
+                {{ form.captcha }}
             </div>
             <div class="my-3">
                 <div class="loading">Loading</div>
