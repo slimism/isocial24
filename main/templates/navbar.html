@@ -7,7 +7,7 @@
                   <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
                   <li><a class="nav-link scrollto" href="{% url 'home' %}#about">About</a></li>
                   <li><a class="nav-link scrollto" href="{% url 'home' %}#services">Services</a></li>
-                  <li><a class="nav-link scrollto" href="{% url 'home' %}#contact">Contact</a></li>
+                  <li><a class="nav-link scrollto" href="{% url 'contact' %}#contact">Contact</a></li>
                   {% if user.is_authenticated %}
                   <li><a class="nav-link scrollto shopping-card" href="{% url 'cart_summary' %}">Cart <span class="badge bg-danger" id="cart_quantity">{{ cart|length }}</span></a></li>
                   <li><a class="nav-link scrollto" href="{% url 'update_user' %}">Profile</a></li>
