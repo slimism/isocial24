@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-
+<div id="product_slide" class="product_slide" style="background: black;">
+  <br/><br/><br/><br/><br/><br/><br/>
+</div>
+<!-- <main id="main">
 
  <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
@@ -29,7 +33,36 @@
           <br/><br/>
 
     </div>
-</div>
+</div> -->
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
 
+        <div class="section-title">
+          <h2>Login</h2>
+          <h3>Log <span>In</span></h3>
+          <p>Login to our Cubiq-Solutions userpanel</p>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form method="POST" action="{% url 'login' %}" role="form" class="php-email-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                <div class="text-center"><button type="submit">Login</button></div>
+            </form>
+        </div>
+        </div>
+        <br/><br/>
+        <br/><br/>
+    </section>
 
 {% endblock %}
