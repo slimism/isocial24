@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'cart',
     'payment',
     'whitenoise.runserver_nostatic',
-    'captcha',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
