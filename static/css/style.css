@@ -1381,18 +1381,6 @@ section {
 # Login
 --------------------------------------------------------------*/
 
-
-.btn.login-btn {
-  background-color: #e43c5c !important;
-  border-color: #e43c5c !important;
-  color: white !important; /* Ensure the text is white */
-}
-
-.btn.login-btn:hover {
-  background-color: #c1354f !important; /* Darker shade for hover */
-  border-color: #c1354f !important;
-}
-
 /* Padding Utilities */
 .py-8 {
   padding-bottom: 4.5rem !important;
