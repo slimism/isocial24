@@ -1382,8 +1382,15 @@ section {
 --------------------------------------------------------------*/
 
 
-.login .php-login-form button[type=submit] {
-  background: #e43c5c;
+.login-btn{
+  background-color: #e43c5c !important;
+  border-color: #e43c5c !important;
+  color: white; /* Adjust the text color for contrast */
+}
+
+.login-btn:hover {
+  background-color: #c1354f !important; /* Darker shade for hover */
+  border-color: #c1354f !important;
 }
 
 /* Padding Utilities */
