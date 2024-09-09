@@ -1380,6 +1380,46 @@ section {
 /*--------------------------------------------------------------
 # Login
 --------------------------------------------------------------*/
+/* .section-title-login {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title-login h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: #fdeff2;
+  color: #e43c5c;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+.section-title-login h3 {
+  margin: 15px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section-title-login h3 span {
+  color: #e43c5c;
+}
+
+.section-title-login p {
+  margin: 15px auto 0 auto;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .section-title-login p {
+    width: 50%;
+  }
+} */
+
 
 /* Padding Utilities */
 .py-8 {
