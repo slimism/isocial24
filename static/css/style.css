@@ -1382,13 +1382,13 @@ section {
 --------------------------------------------------------------*/
 
 
-.login-btn{
+.btn.login-btn {
   background-color: #e43c5c !important;
   border-color: #e43c5c !important;
-  color: white; /* Adjust the text color for contrast */
+  color: white !important; /* Ensure the text is white */
 }
 
-.login-btn:hover {
+.btn.login-btn:hover {
   background-color: #c1354f !important; /* Darker shade for hover */
   border-color: #c1354f !important;
 }
