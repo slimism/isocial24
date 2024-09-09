@@ -1380,12 +1380,12 @@ section {
 /*--------------------------------------------------------------
 # Login
 --------------------------------------------------------------*/
-/* .section-title-login {
+.section-title-login {
   text-align: center;
   padding-bottom: 30px;
 }
 
-.section-title-login h2 {
+/* .section-title-login h2 {
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: 700;
@@ -1397,7 +1397,7 @@ section {
   display: inline-block;
   text-transform: uppercase;
   border-radius: 50px;
-}
+} */
 
 .section-title-login h3 {
   margin: 15px 0 0 0;
@@ -1409,16 +1409,16 @@ section {
   color: #e43c5c;
 }
 
-.section-title-login p {
+/* .section-title-login p {
   margin: 15px auto 0 auto;
   font-weight: 600;
-}
+} */
 
 @media (min-width: 1024px) {
   .section-title-login p {
     width: 50%;
   }
-} */
+}
 
 
 /* Padding Utilities */
