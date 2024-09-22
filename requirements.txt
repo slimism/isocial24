@@ -2,6 +2,7 @@ asgiref==3.7.2
 Django==5.0.3
 gunicorn==22.0.0
 django-recaptcha==4.0.0
+django-paypal==2.1
 packaging==24.1
 pillow==10.2.0
 psycopg2==2.9.9
