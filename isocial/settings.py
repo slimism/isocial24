@@ -1,9 +1,29 @@
 from pathlib import Path
 import os
+#from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Load envorinments 
+#load_dotenv()
+
+DB_PASSWORD = os.environ['DB_PASSWORD']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
+Client_secret = os.environ['Client_secret']
+ClientID = os.environ['ClientID']
+
+# DB_PASSWORD = os.environ.get('DB_PASSWORD')
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
+# RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+# Client_secret = os.environ.get('Client_secret')
+# ClientID = os.environ.get('ClientID')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -31,6 +51,7 @@ INSTALLED_APPS = [
     'payment',
     'whitenoise.runserver_nostatic',
     'django_recaptcha',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres', 
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'PASSWORD': DB_PASSWORD,
         'HOST': 'viaduct.proxy.rlwy.net',
         'PORT': '14001',
     }
@@ -138,9 +159,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 
-RECAPTCHA_PUBLIC_KEY = os.environ['RECAPTCHA_PUBLIC_KEY']
-RECAPTCHA_PRIVATE_KEY = os.environ['RECAPTCHA_PRIVATE_KEY']
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
+RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
+
+
+#Add Paypal settings
+#SET SANDBOX to true 
+PAYPAL_TEST = True
+
+PAYPAL_RECEIVER_EMAIL = 'business@cubiq-solutions.com'
