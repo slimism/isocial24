@@ -947,8 +947,9 @@ section {
 .partner-img {
   display: inline-block;
   margin: 30px 30px; /* Adjust the margin as needed */
-  max-width: 300px; /* Adjusted the size to 300px */
-  height: auto; /* Maintains the aspect ratio */
+  width: 150px;
+  height: 90px;
+  object-fit: contain;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
